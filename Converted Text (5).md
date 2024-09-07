@@ -1,6 +1,6 @@
 **Machine Learning for Lung Cancer Diagnosis, Treatment, and Prognosis Summarization**
 
- **List of authors:** Ojiaku Confidence@Ac_well,Taha Iqram @Taha Amaka MADUBUIKE@ and Braa Elwaleed @Baraa
+ **List of authors:** Ojiaku Confidence@Areta,Taha Iqram @Taha Amaka MADUBUIKE@Ac_well and Braa Elwaleed @Baraa
 
 Lung cancer affects about 2.2 million patients yearly, with 75% dead within five years due to drug resistance. Machine learning (ML) is a branch of artificial intelligence that focuses on predicting outcomes and enhances diagnostic accuracy and treatment planning for lung cancer. This article explores ML roles and potential in lung cancer studies.
 
