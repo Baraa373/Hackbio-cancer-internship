@@ -1,0 +1,117 @@
+> install.packages(c("ggplot2", "dplyr", "pheatmap", "RColorBrewer", "ggrepel"))
+> if (!requireNamespace("BiocManager", quietly = TRUE))
++     install.packages("BiocManager")
+
+> library(DESeq2)
+> library(pheatmap)
+> library(dplyr)
+> library(RColorBrewer)
+> library(ggplot2)
+> library(ggrepel)
+> setwd("D:\\bioinformatics\\hackbio")
+> 
+> # Replace dashes with dots in the specified column
+> sample_info$SampleID <- gsub("-", ".", sample_info$SampleID)
+Error in $<-.data.frame(*tmp*, SampleID, value = character(0)) : 
+  replacement has 0 rows, data has 28
+> count_data <- read.csv('filtered_count_matrix_with_gene_column.csv', header = TRUE, row.name = 1)
+> sample_info <- read.csv('sample_info.csv', header = TRUE, stringsAsFactors = TRUE)
+> dds <- DESeqDataSetFromMatrix(countData = count_data, colData = sample_info, design = ~Sample.Type)
+  Note: levels of factors in the design contain characters other than
+  letters, numbers, '_' and '.'. It is recommended (but not required) to use
+  only letters, numbers, and delimiters '_' or '.', as these are safe characters
+  for column names in R. [This is a message, not a warning or an error]
+> 
+> head(dds)
+> dds$Sample.Type <- factor(dds$Sample.Type, levels = c("Primary Tumor","Recurrent Tumor"))
+> dds <- DESeq(dds)
+> deseq_results <- results(dds)
+> deseq_results
+> deseq_results <- as.data.frame(deseq_results)
+> class(deseq_results)
+> deseq_results_ordered["STAT4",]
+> filtered <- deseq_results %>% filter(deseq_results$padj < 0.05)
+> filtered <- filtered %>% filter(abs(filtered%log2FoldChange) > 1)
+Error: unexpected input in "filtered <- filtered %>% filter(abs(filtered%log2FoldChange) > 1)"
+> filtered <- filtered %>% filter(abs(filtered$log2FoldChange) > 1)
+> 
+> upregulated <- deseq_results[deseq_results$log2FoldChange > 1 & deseq_results$padj < 0.05, ]
+> downregulated <- deseq_results[deseq_results$log2FoldChange < -1 & deseq_results$padj < 0.05, ]
+> downregulated <- deseq_results[deseq_results$log2FoldChange < -1 & deseq_results$padj < 0.05, ]
+> write.csv(downregulated, file = "downregulated_genes.csv", row.names = TRUE)
+> # Save to CSV files
+> write.csv(upregulated, file = "upregulated_genes.csv", row.names = TRUE)
+> sampleDists <- dist(t(assay(vsd))) [1
+> # Extract normalized count data from DESeq2 object
+> normalized_counts <- counts(dds, normalized = TRUE)
+> # Subset normalized counts for upregulated genes
+> upregulated_genes <- rownames(upregulated)
+> upregulated_counts <- normalized_counts[upregulated_genes, ]
+> # Subset normalized counts for downregulated genes
+> downregulated_genes <- rownames(downregulated)
+> downregulated_counts <- normalized_counts[downregulated_genes, ]
+> # Create heatmap for upregulated genes
+> pheatmap(upregulated_counts, 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE, 
++          scale = "row", 
++          show_rownames = TRUE, 
++          show_colnames = FALSE, 
++          main = "Heatmap of Upregulated Genes")
+> pheatmap(downregulated_counts, 
++          cluster_rows = TRUE, 
++          cluster_cols = TRUE, 
++          scale = "row", 
++          show_rownames = TRUE, 
++          show_colnames = FALSE, 
++          main = "Heatmap of Downregulated Genes")
+> # Save the upregulated genes heatmap
+> png("upregulated_heatmap.png", width = 800, height = 800)
+> pheatmap(assay(vst_data)[rownames(upregulated_genes), ], cluster_rows = TRUE, show_rownames = TRUE, 
++          cluster_cols = TRUE, annotation_col = as.data.frame(colData(dds)[, "Sample.Type"]))
+> # Apply variance stabilizing transformation (VST)
+> vst_data <- vst(dds, blind = FALSE)
+> 
+> # Save the upregulated genes heatmap
+> png("upregulated_heatmap.png", width = 800, height = 800)
+> pheatmap(assay(vst_data)[rownames(upregulated_genes), ], cluster_rows = TRUE, show_rownames = TRUE, 
++          cluster_cols = TRUE, annotation_col = as.data.frame(colData(dds)[, "Sample.Type"]))
+> BiocManager::install("EnhancedVolcano")
+'getOption("repos")' replaces Bioconductor standard repositories, see 'help("repositories",
+> # Load the library
+> library(EnhancedVolcano)
+> # Load the EnhancedVolcano package
+> library(EnhancedVolcano)
+> # Volcano plot using your deseq_results
+> EnhancedVolcano(deseq_results,
++                 lab = rownames(deseq_results),
++                 x = 'log2FoldChange',  # x-axis for fold change
++                 y = 'pvalue',          # y-axis for p-values
++                 pCutoff = 0.05,        # Adjust as needed
++                 FCcutoff = 1,          # Fold-change threshold
++                 title = 'Volcano Plot',
++                 xlab = 'Log2 Fold Change',
++                 ylab = '-Log10 p-value',
++                 col = c('grey30', 'forestgreen', 'royalblue', 'red2'),
++                 legendLabels = c('NS', 'Log2 FC', 'p-value', 'p-value & Log2 FC'),
++                 legendPosition = 'right',
++                 legendLabSize = 12,
++                 labSize = 3.0)
+> # Load the ggplot2 library
+> library(ggplot2)
+> 
+> # Add a column to categorize genes as significant or not
+> deseq_results$significance <- ifelse(deseq_results$pvalue < 0.05 & abs(deseq_results$log2FoldChange) >= 1, 
++                                      "Significant", "Not Significant")
+> 
+> # Create a volcano plot using your deseq_results
+> ggplot(deseq_results, aes(x = log2FoldChange, y = -log10(pvalue))) +
++     geom_point(aes(color = significance), alpha = 0.8, size = 2) +
++     scale_color_manual(values = c("red", "gray")) +
++     theme_minimal() +
++     labs(title = "Volcano Plot", x = "Log2 Fold Change", y = "-Log10 p-value") +
++     geom_vline(xintercept = c(-1, 1), col = "black", linetype = "dashed") +
++     geom_hline(yintercept = -log10(0.05), col = "black", linetype = "dashed") +
++     theme(legend.position = "right")
+
+CGA.20.1687.01A
