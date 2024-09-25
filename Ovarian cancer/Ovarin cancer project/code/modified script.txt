@@ -1,0 +1,53 @@
+# Read the metadata file
+metadata <- read.delim("F:/Working Files/ovarian_metadata.csv", header = TRUE)
+
+# Load the count matrix (with gene names as row names)
+count_matrix <- read.csv("F:/Working Files/count_matrix.csv", row.names = 1)
+
+# Filter metadata for primary and recurring tumors
+primary_samples <- metadata[metadata$Sample.Type == "Primary Tumor", "Sample.ID"]
+recurring_samples <- metadata[metadata$Sample.Type == "Recurrent Tumor", "Sample.ID"]
+
+# Ensure there are no leading or trailing whitespaces in the sample IDs
+primary_samples <- trimws(primary_samples)
+recurring_samples <- trimws(recurring_samples)
+
+# Limit to 20 samples each (or fewer if needed)
+primary_samples <- head(primary_samples, 20)
+recurring_samples <- head(recurring_samples, 20)
+
+# Combine primary and recurring sample IDs
+selected_samples <- c(primary_samples, recurring_samples)
+# Replace hyphens with periods in selected_samples
+selected_samples <- gsub("-", ".", selected_samples)
+
+# Now find matching samples
+matching_samples <- selected_samples[selected_samples %in% colnames(count_matrix)]
+
+# Subset the count matrix with matching samples
+filtered_count_matrix <- count_matrix[, matching_samples]
+
+# Reorder the columns of filtered_count_matrix to match the order of selected_samples
+filtered_count_matrix <- filtered_count_matrix[, match(matching_samples, colnames(filtered_count_matrix))]
+
+# Add gene names as the first column
+filtered_count_matrix_with_genes <- data.frame(Gene = rownames(filtered_count_matrix), filtered_count_matrix)
+
+# Save the final count matrix with gene names
+write.csv(filtered_count_matrix_with_genes, file = "F:/Working Files/filtered_count_matrix_with_gene_column.csv", row.names = FALSE)
+as for Annotation 
+
+# Replace hyphens with periods in the Sample.ID column of the metadata
+metadata$Sample.ID <- gsub("-", ".", metadata$Sample.ID)
+
+# Extract sample IDs from the filtered count matrix
+selected_sample_ids <- colnames(filtered_count_matrix)
+
+# Filter the metadata for selected samples
+selected_metadata <- metadata[metadata$Sample.ID %in% selected_sample_ids, ]
+
+# Create the Annotation Data Frame
+annotation_data <- selected_metadata[, c("File.ID", "File.Name", "Data.Category", "Data.Type", "Project.ID", "Case.ID", "Sample.ID", "Sample.Type")]  # Adjust column names as needed
+
+# Save the annotation data to a CSV file
+write.csv(annotation_data, file = "F:/Working Files/annotations.csv", row.names = FALSE)
