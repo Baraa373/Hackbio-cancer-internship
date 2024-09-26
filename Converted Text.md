@@ -7,34 +7,8 @@
 
 It is based on converting RNA into cDNA then fragmental DNA will be read or sequenced using a high-throughput platform this guides researchers to quantify gene expression levels, identify novel transcripts, and uncover alternative splicing events, all of which are crucial for understanding cancer biology (Wang et al., 2009).
 
-<!--[if gte vol 1]><v:shape type id="_x0000_t75" coordsize="21600,21600"
- o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f"
- stroked="f">
- <v:stroke joinstyle="miter"/>
- <v: formulas>
-  <v:f eqn="if line drawn pixelLineWidth 0"/>
-  <v:f eqn="sum @0 1 0"/>
-  <v:f eqn="sum 0 0 @1"/>
-  <v:f eqn="prod @2 1 2"/>
-  <v:f eqn="prod @3 21600 pixel width"/>
-  <v:f eqn="prod @3 21600 pixelHeight"/>
-  <v:f eqn="sum @0 0 1"/>
-  <v:f eqn="prod @6 1 2"/>
-  <v:f eqn="prod @7 21600 pixel width"/>
-  <v:f eqn="sum @8 21600 0"/>
-  <v:f eqn="prod @7 21600 pixelHeight"/>
-  <v:f eqn="sum @10 21600 0"/>
- </v: formulas>
- <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
- <o:lock v:ext="edit" aspectratio="t"/>
-</v:shapetype><v:shape id="Picture_x0020_1" o:spid="_x0000_i1025" type="#_x0000_t75"
- alt="A diagram of a sequence of dna&#10;&#10;Description automatically generated"
- style='width:277.9pt;height:285.4pt;visibility:visible;mso-wrap-style:square'>
- <v:imagedata src="file:///C:/Users/asus/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg"
-  o:title="A diagram of a sequence of dna&#10;&#10;Description automatically generated"/>
-</v:shape><![endif]--><!--[if !vml]-->![A diagram of a sequence of dna
+![image](https://github.com/user-attachments/assets/5803f2c5-363b-496d-8ebf-b9f7f6ccbe50)
 
-Description automatically generated](file:///C:/Users/asus/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg)<!--[endif]-->
 
 Figure <!--[if supportFields]><span style='font-size:10.0pt;
 line-height:150%;font-family:"Times New Roman",serif;mso-ascii-theme-font:major-bidi;
