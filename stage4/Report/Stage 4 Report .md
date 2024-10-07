@@ -66,6 +66,6 @@ IDH mutations can be identified using methylation profiling and gene expression 
 
 **References** 
 
-Kellerw, S. A., Gupta, A., & Hsu, F. H. (2015). Mutant IDH1 and IDH2 in glioma: A review of their roles in the development and progression of brain tumors. \*Cell\*, \*162\*(4), 901-914. https\://doi.org/10.1016/j.cell.2015.08.023
+Michele Ceccarelli1,2,24 ∙ Floris P. Barthel3,4,24 ∙ Tathiane M. Malta5,6,24∙ … ∙ Houtan Noushmehr5,6,25 houtan@usp.br ∙ Antonio Iavarone10,25 ai2102@columbia.edu ∙ Roel G.W. Verhaak3,25. Molecular Profiling Reveals Biologically Discrete Subsets and Pathways of Progression in Diffuse Glioma. Volume 164, Issue 3p550-563January 28, 2016
 
 
