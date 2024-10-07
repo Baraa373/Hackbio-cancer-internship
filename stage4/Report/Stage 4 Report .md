@@ -83,7 +83,9 @@ Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor In
 
 Figure 7: Volcano Plot 
 
-A volcano plot shows gene expression data. The X-axis is log2 fold change, while the Y-axis is -log10 p-value. Each point represents a gene. Right points indicate upregulated genes, and left points indicate downregulated genes. It helps identify significant genes in analyses.
+A volcano plot shows gene expression data. The X-axis is log2 fold change, while the Y-axis is—log10 p-value. Each point represents a gene. Right points indicate upregulated genes, and left points indicate downregulated genes. This helps identify significant genes in analyses.
+
+
 
 
 
