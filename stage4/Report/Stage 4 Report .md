@@ -56,7 +56,7 @@ Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor In
 
 **Discussion**
 
-**DEA** analysis with a Prediction Forest model showed 79% accuracy in IDH detection, indicating higher expression in mutant gliomas (frequency 120) compared to wildtype (30%). 
+**DEA** analysis with a Prediction KNN model showed 79% accuracy in IDH detection, indicating higher expression in mutant gliomas (frequency 120) compared to wildtype (30%). 
 
 After filtering to 100 genes, the heat map revealed two significant clusters that effectively separated the samples. While more clusters could refine the analysis, the current two clusters demonstrate clear segregation.
 
