@@ -56,67 +56,115 @@ normalized_counts <- counts(dds, normalized = TRUE)
 
 # Subset normalized counts for upregulated and downregulated genes
 upregulated_genes <- rownames(upregulated)
+
+# Install necessary packages if not installed
+if (!requireNamespace("pheatmap", quietly = TRUE)) install.packages("pheatmap")
+if (!requireNamespace("ggplot2", quietly = TRUE)) install.packages("ggplot2")
+if (!requireNamespace("EnhancedVolcano", quietly = TRUE)) install.packages("EnhancedVolcano")
+
+# Load libraries
+library(pheatmap)
+library(ggplot2)
+library(EnhancedVolcano)
+
+# Set the working directory (ensure correct escaping for backslashes)
+setwd("D:\\bioinformatics\\hackbio")
+
+# Import data with headers
+upregulated_data <- read.csv("upregulated_genes_task5_updated.csv", header = TRUE)
+downregulated_data <- read.csv("downregulated_genes_task5_updated.csv", header = TRUE)
+
+# Remove rows with missing values (NA)
+upregulated_data <- na.omit(upregulated_data)
+downregulated_data <- na.omit(downregulated_data)
+
+# Set the first column as row names and remove it from the data
+rownames(upregulated_data) <- upregulated_data[, 1]
+upregulated_data <- upregulated_data[, -1]  # Remove the first column from data
+
+rownames(downregulated_data) <- downregulated_data[, 1]
+downregulated_data <- downregulated_data[, -1]  # Remove the first column from data
+
+# Combine upregulated and downregulated data
+combined_data <- rbind(upregulated_data, downregulated_data)
+
+# Calculate variance for each gene
+gene_variances <- apply(combined_data, MARGIN = 1, FUN = var)
+
+# Specify the number of top genes to keep (you can adjust this if necessary)
+top_n <- 100
+
+# Filter top genes based on variance
+if (nrow(combined_data) < top_n) {
+    top_genes <- combined_data  # Use the entire dataset if fewer genes than top_n
+} else {
+    top_genes_indices <- order(gene_variances, decreasing = TRUE)[1:top_n]
+    top_genes <- combined_data[top_genes_indices, ]
+}
+
+# Check the dimensions to ensure you have the desired number of genes
+dim(top_genes)
+
+# Optional: Normalize the data (mean-center and scale)
+normalized_data <- scale(top_genes)
+
+# Create a heatmap of the top genes
+pheatmap(normalized_data, 
+         cluster_rows = TRUE,  # Cluster rows (genes)
+         cluster_cols = TRUE,  # Cluster columns (samples)
+         show_rownames = TRUE,  # Show gene names
+         show_colnames = TRUE,  # Show column names
+         main = "Top 100 Genes by Variance")
+
+# Optionally, you can save the heatmap to a file
+# pheatmap(normalized_data, filename = "heatmap.png")
+
+# Make a volcano plot using the combined dataset (if necessary)
+EnhancedVolcano(
+    combined_data,
+    lab = rownames(combined_data),
+    x = 'log2FoldChange',  # Replace with your actual column for log2 fold change
+    y = 'padj',            # Replace with your actual column for adjusted p-value
+    xlim = c(-6, 6),       # Adjust the x-axis limits as needed
+    pCutoff = 0.05,        # P-value cutoff
+    FCcutoff = 1,          # Fold-change cutoff
+    pointSize = 3.0,
+    labSize = 4.0,
+    title = 'Volcano Plot',
+    subtitle = 'Upregulated and Downregulated Genes',
+    caption = 'log2FoldChange vs adjusted p-value'
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 upregulated_counts <- normalized_counts[upregulated_genes, ]
 downregulated_genes <- rownames(downregulated)
 downregulated_counts <- normalized_counts[downregulated_genes, ]
 
-# Create heatmap for upregulated genes
-pheatmap(upregulated_counts, 
-         cluster_rows = TRUE, 
-         cluster_cols = TRUE, 
-         scale = "row", 
-         show_rownames = TRUE, 
-         show_colnames = FALSE, 
-         main = "Heatmap of Upregulated Genes")
-
-# Create heatmap for downregulated genes
-pheatmap(downregulated_counts, 
-         cluster_rows = TRUE, 
-         cluster_cols = TRUE, 
-         scale = "row", 
-         show_rownames = TRUE, 
-         show_colnames = FALSE, 
-         main = "Heatmap of Downregulated Genes")
-
-# Apply variance stabilizing transformation (VST)
-vst_data <- vst(dds, blind = FALSE)
-
-# Save the upregulated genes heatmap
-png("upregulated_heatmap.png", width = 800, height = 800)
-pheatmap(assay(vst_data)[rownames(upregulated_genes), ], cluster_rows = TRUE, show_rownames = TRUE, 
-         cluster_cols = TRUE, annotation_col = as.data.frame(colData(dds)[, "Sample.Type"]))
-dev.off()
-
-# Load EnhancedVolcano library
-BiocManager::install("EnhancedVolcano")
-library(EnhancedVolcano)
-
-# Create Volcano plot using DESeq results
-EnhancedVolcano(deseq_results,
-                lab = rownames(deseq_results),
-                x = 'log2FoldChange',  # x-axis for fold change
-                y = 'pvalue',          # y-axis for p-values
-                pCutoff = 0.05,        # Adjust as needed
-                FCcutoff = 1,          # Fold-change threshold
-                title = 'Volcano Plot',
-                xlab = 'Log2 Fold Change',
-                ylab = '-Log10 p-value',
-                col = c('grey30', 'forestgreen', 'royalblue', 'red2'),
-                legendLabels = c('NS', 'Log2 FC', 'p-value', 'p-value & Log2 FC'),
-                legendPosition = 'right',
-                legendLabSize = 12,
-                labSize = 3.0)
-
-# Add a column to categorize genes as significant or not
-deseq_results$significance <- ifelse(deseq_results$pvalue < 0.05 & abs(deseq_results$log2FoldChange) >= 1, 
-                                     "Significant", "Not Significant")
-
-# Create a volcano plot using ggplot2
-ggplot(deseq_results, aes(x = log2FoldChange, y = -log10(pvalue))) +
-  geom_point(aes(color = significance), alpha = 0.8, size = 2) +
-  scale_color_manual(values = c("red", "gray")) +
-  theme_minimal() +
-  labs(title = "Volcano Plot", x = "Log2 Fold Change", y = "-Log10 p-value") +
-  geom_vline(xintercept = c(-1, 1), col = "black", linetype = "dashed") +
-  geom_hline(yintercept = -log10(0.05), col = "black", linetype = "dashed") +
-  theme(legend.position = "right")
