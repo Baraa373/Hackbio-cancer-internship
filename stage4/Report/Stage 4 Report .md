@@ -41,16 +41,29 @@ Clustering revealed gene groups with a similar expression. This suggests they wo
 Figure 3: Heatmap of cluster means
 
 
+
+
+
+![K means cluster](https://github.com/user-attachments/assets/18fcd94b-983f-4d7d-87b6-ce524b61c59a)
+
+Figure 4: K-means Clustering of Gliomas
+
+The plot illustrates the clustering of glioma samples based on principal component analysis (PCA), showing distinct groups (clusters) represented by different colors, with IDH status indicated by shapes.
+
+
+
+
+
 ![upregulated](https://github.com/user-attachments/assets/3d15e973-424f-4438-8823-b0925d7452da)
 
-Figure 4: upregulation gene
+Figure 5: upregulation gene
 
 We have upregulated gene pathways. The TGF-beta signaling pathway has an FDR of 3.9E-03 and a fold enrichment of 5.3 (93 genes). The Glutamatergic synapse has an FDR of 1.3E-02 and a fold enrichment of 4.3 (114 genes). The Neuroactive ligand-receptor interaction shows an FDR of 3.9E-05 and a fold enrichment of 3.6 (350 genes). The CAMP signaling pathway has an FDR of 3.6E-03 and a fold enrichment of 3.5 (219 genes).
 
 
 ![downregulated](https://github.com/user-attachments/assets/47b931d1-f9f6-40c5-af79-ecf03a4fe6a8)
 
-Figure 4: Downregulation gene
+Figure 6: Downregulation gene
 
 Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor Interaction pathway has an FDR of 5.9E-13 and a fold enrichment 6.3. The Primary Immunodeficiency pathway shows an FDR of 2.6E-06 with a fold enrichment of 4.3. The Basal Cell Carcinoma pathway has an FDR of 1.5E-05 and a fold enrichment of 3.4.
 
