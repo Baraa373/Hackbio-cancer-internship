@@ -2,9 +2,7 @@
 
 **Exploring Gene Expression Patterns in Gliomas: Clustering Approaches for IDH Status Determination**
 
-**Authors:**  Braa Elwaleed Mohamed (@Baraa),
-
-Nooran\_ Alharty (@ Nooran\_ Alharty), Henry Momanyi (@Henry), Taha (@Taha), Olabode Kaosara Omowunmi (@TheResearchNerd), Olajumoke Oladosu (@ jumblosu).
+**Authors:**  Braa Elwaleed Mohamed (@Baraa), Nooran\_ Alharty (@ Nooran\_ Alharty), Henry Momanyi (@Henry), Taha (@Taha), Olabode Kaosara Omowunmi (@TheResearchNerd), Olajumoke Oladosu (@ jumblosu).
 
 **Introduction**
 
