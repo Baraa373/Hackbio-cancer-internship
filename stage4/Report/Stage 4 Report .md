@@ -83,7 +83,8 @@ Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor In
 
 Figure 7: Volcano Plot 
 
-Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor Interaction pathway has an FDR of 5.9E-13 and a fold enrichment 6.3. The Primary Immunodeficiency pathway shows an FDR of 2.6E-06 with a fold enrichment of 4.3. The Basal Cell Carcinoma pathway has an FDR of 1.5E-05 and a fold enrichment of 3.4.
+A volcano plot shows gene expression data. The X-axis is log2 fold change, while the Y-axis is -log10 p-value. Each point represents a gene. Right points indicate upregulated genes, and left points indicate downregulated genes. It helps identify significant genes in analyses.
+
 
 
 
