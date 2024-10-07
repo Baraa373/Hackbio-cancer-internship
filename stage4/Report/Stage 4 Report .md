@@ -33,14 +33,17 @@ The KNN classifier, trained on selected features with cross-validation, achieved
 The heatmap displays cluster means of gene expression data from TCGA samples. It groups genes and samples based on expression levels, using color intensity to indicate higher or lower expression. This clustering helps visualize relationships and patterns in gene expression across different samples.
 
 
+
+
+
 ![Heatmap](https://github.com/user-attachments/assets/85c56d19-4710-46dc-b812-1e98ea145fa3)
 
 
-Clustering revealed gene groups with a similar expression. This suggests they work together and may indicate important markers for IDH status and tumor behavior.
+
 
 Figure 3: Heatmap of cluster means
 
-
+The heatmap displays cluster means of gene expression data from TCGA samples. It groups genes and samples based on expression levels, using color intensity to indicate higher or lower expression. This clustering helps visualize relationships and patterns in gene expression across different samples. Clustering revealed gene groups with a similar expression. This suggests they work together and may indicate important markers for IDH status and tumor behavior.
 
 
 
@@ -105,7 +108,7 @@ This visualization helps identify patterns in gene expression and highlights gen
 
 **Discussion**
 
-**DEA** analysis with a Prediction KNN model showed 79% accuracy in IDH detection, indicating higher expression in mutant gliomas (frequency 120) compared to wildtype (30%). 
+**DEA** analysis with a Prediction KNN model showed 79% accuracy in IDH detection, indicating higher expression in mutant gliomas (frequency 120) than wildtype (30%). 
 
 After filtering to 100 genes, the heat map revealed two significant clusters that effectively separated the samples. While more clusters could refine the analysis, the current two clusters demonstrate clear segregation.
 
