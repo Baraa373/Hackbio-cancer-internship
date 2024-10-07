@@ -67,6 +67,42 @@ Figure 6: Downregulation gene
 
 Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor Interaction pathway has an FDR of 5.9E-13 and a fold enrichment 6.3. The Primary Immunodeficiency pathway shows an FDR of 2.6E-06 with a fold enrichment of 4.3. The Basal Cell Carcinoma pathway has an FDR of 1.5E-05 and a fold enrichment of 3.4.
 
+
+
+
+![Volcano Plot](https://github.com/user-attachments/assets/6e53ce0f-454d-4386-858c-827ed5cc2586)
+
+
+
+
+
+
+
+Figure 7: Volcano Plot 
+
+Downregulation gene pathway enrichment results using ShinGo. The ECM-Receptor Interaction pathway has an FDR of 5.9E-13 and a fold enrichment 6.3. The Primary Immunodeficiency pathway shows an FDR of 2.6E-06 with a fold enrichment of 4.3. The Basal Cell Carcinoma pathway has an FDR of 1.5E-05 and a fold enrichment of 3.4.
+
+
+
+
+
+
+
+![Heatmap](https://github.com/user-attachments/assets/9f274cc3-1f2d-4ff1-8fda-1e7bd70b6d89)
+
+
+
+
+
+
+
+
+Figure 8: Heatmap
+
+This visualization helps identify patterns in gene expression and highlights genes with the most variability
+
+
+
 **Discussion**
 
 **DEA** analysis with a Prediction KNN model showed 79% accuracy in IDH detection, indicating higher expression in mutant gliomas (frequency 120) compared to wildtype (30%). 
