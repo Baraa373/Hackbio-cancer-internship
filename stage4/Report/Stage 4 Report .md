@@ -62,7 +62,7 @@ After filtering to 100 genes, the heat map revealed \*\*two significant clusters
 
 **Conclusion** 
 
-More data collection is needed to improve IDH classification and treatment strategies in glioma research.
+IDH mutations can be identified using methylation profiling and gene expression data. The KNN classifier reached 79% accuracy. More data is needed to improve IDH classification and treatment.
 
 **References** 
 
