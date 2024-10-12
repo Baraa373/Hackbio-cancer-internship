@@ -50,14 +50,8 @@ RNA-seq faces challenges, including data complexity and the need for robust bioi
 
 7- era JC, et al. Rapid transcriptome characterization for a nonmodel organism using 454 pyrosequencing. _Mol. Ecol. _2008;17:1636–1647. \[[PubMed](https://pubmed.ncbi.nlm.nih.gov/18266620)] \[[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Mol.+Ecol\&title=Rapid+transcriptome+characterization+for+a+nonmodel+organism+using+454+pyrosequencing\&author=JC+Vera\&volume=17\&publication_year=2008\&pages=1636-1647\&pmid=18266620&)] \[[Ref list](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/#R27)].
 
-8- Nagalakshmi U, et al. The transcriptional landscape of the yeast genome defined by RNA sequencing. _Science. _2008;320:1344–1349. \[[PMC free article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2951732/)] \[[PubMed](https://pubmed.ncbi.nlm.nih.gov/18451266)] \[[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Science\&title=The+transcriptional+landscape+of+the+yeast+genome+defined+by+RNA+sequencing\&author=U+Nagalakshmi\&volume=320\&publication_year=2008\&pages=1344-1349\&pmid=18451266&)] \[[Ref list](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/#R18)].
+8- Nagalakshmi U, et al. The transcriptional landscape of the yeast genome is defined by RNA sequencing. _Science. _2008;320:1344–1349. \[[PMC free article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2951732/)] \[[PubMed](https://pubmed.ncbi.nlm.nih.gov/18451266)] \[[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Science\&title=The+transcriptional+landscape+of+the+yeast+genome+defined+by+RNA+sequencing\&author=U+Nagalakshmi\&volume=320\&publication_year=2008\&pages=1344-1349\&pmid=18451266&)] \[[Ref list](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2949280/#R18)].
 
 9- Azizi E, Carr AJ, Plitas G, Cornish AE, Konopacki C, Prabhakaran S et al. Single‐Cell Map of Diverse Immune Phenotypes in the Breast Tumor Microenvironment. _Cell_. 2018;174(5):1293‐308.e36. 10.1016/j.cell.2018.05.060. \[[PMC free article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6348010/)] \[[PubMed](https://pubmed.ncbi.nlm.nih.gov/29961579)] \[[CrossRef](https://doi.org/10.1016%2Fj.cell.2018.05.060)] \[[Google Scholar](https://scholar.google.com/scholar_lookup?journal=Cell\&title=Single%E2%80%90Cell+Map+of+Diverse+Immune+Phenotypes+in+the+Breast+Tumor+Microenvironment\&volume=174\&issue=5\&publication_year=2018\&pages=1293-308\&pmid=29961579\&doi=10.1016/j.cell.2018.05.060&)]
 
  
-
-** **
-
-** **
-
-** **
