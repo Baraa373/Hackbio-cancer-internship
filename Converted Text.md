@@ -16,7 +16,7 @@ mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:major-bidi'><span
 style='mso-element:field-begin'></span><span
 style='mso-spacerun:yes'> </span>SEQ Figure \* ARABIC <span style='mso-element:
 field-separator'></span></span><![endif]-->1<!--[if supportFields]><span
-style='font-size:10.0pt;line-height:150%;font-family:"Times New Roman",serif;
+style='font-size:10.0pt;line-height:150%;font-family:"Times New Roman", serif;
 mso-ascii-theme-font:major-bidi;mso-hansi-theme-font:major-bidi;mso-bidi-theme-font:
 major-bidi'><span style='mso-element:field-end'></span></span><![endif]-->: RNA Seq (Wang et al., 2009)
 
