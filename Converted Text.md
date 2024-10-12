@@ -30,9 +30,6 @@ On the other hand, it contributes significantly to personalized medicine by anal
 
 RNA-seq faces challenges, including data complexity and the need for robust bioinformatics tools to analyze and interpret the data accurately so improvements in sequencing methods and data analysis techniques will likely enhance the resolution and applicability of RNA-seq in research and clinical settings. In summary, RNA sequencing is crucial for advancing cancer research. It helps identify cancer types, discover biomarkers, and find new treatment targets, ultimately improving patient care and outcomes.
 
-****
-
-** **
 
 **Reference**
 
