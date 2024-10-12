@@ -2,7 +2,7 @@
 
  **List of authors:** Ojiaku Confidence@Areta,Taha Iqram @Taha Amaka MADUBUIKE@Ac_well and Braa Elwaleed @Baraa
 
-Lung cancer affects about 2.2 million patients yearly, with 75% dead within five years due to drug resistance. Machine learning (ML) is a branch of artificial intelligence that focuses on predicting outcomes and enhances diagnostic accuracy and treatment planning for lung cancer. This article explores ML roles and potential in lung cancer studies.
+Lung cancer affects about 2.2 million patients annually, and due to drug resistance, 75% die within five years. Machine learning (ML) is a branch of artificial intelligence that focuses on predicting outcomes and enhances diagnostic accuracy and treatment planning for lung cancer. This article explores ML's roles and potential in lung cancer studies.
 
 Early cancer detection reduces mortality leading to the development of enhanced Computer-Aided Diagnosis and ML models like Convolutional Neural Networks (CNNs). CNNs translate CT images and identify tumor regions. However, Generative Adversarial Networks (GANs) address the challenge of dataset overfitting encountered by CNNs.
 
